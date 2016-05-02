@@ -2,21 +2,21 @@ function next()
    listInspect = dir(LMJ.INSPECT_DIR);
    listInspect(1:2) = [];
    
-   listOringinal = dir(LMJ.ORIGINAL_DIR);
-   listOringinal(1:2) = [];
+   listOriginal = dir(LMJ.ORIGINAL_DIR);
+   listOriginal(1:2) = [];
    
    % First deal with working set
-   if(~isempty(listOringinal))
+   if(~isempty(listOriginal))
        
-       assert(length(listOringinal)==1, ...
+       assert(length(listOriginal)==1, ...
            ['Error: More than 1 folder in "',LMJ.ORIGINAL_DIR,'"!']);
        
        gradingFolderName=listOriginal.name;
-       gradingFolderPath=[LMJ.ORINGINAL,gradingFolderName];
+       gradingFolderPath=[LMJ.ORIGINAL_DIR,gradingFolderName];
        
        if(LMJ.ENABLE_STATISTICS)
            scoreFilePath    = [LMJ.WORIKING_DIR,LMJ.SCORE_FILE];
-           if(exist(scoreFilePath,'file')==2)\
+           if(exist(scoreFilePath,'file')==2)
                copyfile(scoreFilePath       ,gradingFolderPath);
                movefile(gradingFolderPath   ,LMJ.OUTPUT_DIR);
                LMJ.emptyWorkingDir();
