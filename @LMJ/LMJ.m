@@ -28,13 +28,15 @@ classdef LMJ
         classify();
         next();
         statistics();
+        checkDirIntegrety();
+        resetWorkingDir();
+        generateScoreFile(info);
     end
+    
     
     methods (Access = private, Static =true)
         APIClassify(path,pathout);
         emptyWorkingDir();
-        resetWorkingDir();
-        generateScoreFile(info);
     end
         
 end

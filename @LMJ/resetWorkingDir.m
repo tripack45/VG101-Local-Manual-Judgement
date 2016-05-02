@@ -1,4 +1,5 @@
 function resetWorkingDir()
+LMJ.checkDirIntegrety();
 if(LMJ.ENABLE_STATISTICS)
     disp('NOT YET IMPLEMENTED');
 else

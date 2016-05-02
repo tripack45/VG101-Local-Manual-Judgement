@@ -1,4 +1,6 @@
 function next()
+   LMJ.checkDirIntegrety();
+   
    listInspect = dir(LMJ.INSPECT_DIR);
    listInspect(1:2) = [];
    
