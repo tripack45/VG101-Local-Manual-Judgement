@@ -1,5 +1,6 @@
 function emptyWorkingDir()
 % EMPTYWORKINGDIR 
+fclose('all');
 files = dir(LMJ.WORKING_DIR);
 files(1:2) = [];
 for item = files'

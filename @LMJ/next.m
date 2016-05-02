@@ -17,7 +17,7 @@ function next()
        gradingFolderPath=[LMJ.ORIGINAL_DIR,gradingFolderName];
        
        if(LMJ.ENABLE_STATISTICS)
-           scoreFilePath    = [LMJ.WORIKING_DIR,LMJ.SCORE_FILE];
+           scoreFilePath    = [LMJ.WORKING_DIR,LMJ.SCORE_FILE];
            if(exist(scoreFilePath,'file')==2)
                copyfile(scoreFilePath       ,gradingFolderPath);
                movefile(gradingFolderPath   ,LMJ.OUTPUT_DIR);
