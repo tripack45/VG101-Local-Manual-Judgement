@@ -1,0 +1,17 @@
+@section=general_info
+$sid=<#sid#>
+$name=<#name#>
+$title=<#title#>
+
+@section=ex1
+$score=
+
+@section=ex2
+$score=
+
+
+@section=ex3
+$score=
+
+@section=ex4
+$score=

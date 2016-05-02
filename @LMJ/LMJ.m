@@ -5,18 +5,24 @@ classdef LMJ
     
     
     properties (Constant = true)
-       FOLDER_TEMPLATE = '^\d{10}_.*';
+       FOLDER_TEMPLATE = '^(\d{10})_(.*)';
+       
+       TEMPLATE_VAR    = '<#(.*?)#>';
+       %The string must only contain one "(.*)" substring
+       
        FILE_TEMPLATE   = '';
        README_TEMPLATE = '';
+       
        SCORE_FILE      = 'score.txt';
        SCORE_TEMPLATE  = 'template.txt';
+       
        WORKING_DIR     = './working/';
        ORIGINAL_DIR    = './original/';
        INSPECT_DIR     = './under_review/';
        INPUT_DIR       = './unclassified/';
        OUTPUT_DIR      = './reviewed/';
        
-       ENABLE_STATISTICS = false;
+       ENABLE_STATISTICS = true;
     end
    
     methods (Access = private)
@@ -31,12 +37,16 @@ classdef LMJ
         checkDirIntegrety();
         resetWorkingDir();
         generateScoreFile(info);
+   
     end
     
     
-    methods (Access = private, Static =true)
-        APIClassify(path,pathout);
-        emptyWorkingDir();
+    methods (Access = public, Static =true)
+            APIClassify(path,pathout);
+            emptyWorkingDir();
+    str   = templateStrBindParam(string,param);    
+    str   = getGradingFolderName();
+    param = parseFolderName(folderName);
     end
         
 end

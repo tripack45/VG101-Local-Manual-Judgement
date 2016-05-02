@@ -1,5 +1,5 @@
 function [] = statistics()
-LMJ.checkDirIntegrety();
+    LMJ.checkDirIntegrety();
 
 end
 
