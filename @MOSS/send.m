@@ -16,6 +16,7 @@ else
     fwrite(socket, ['show '         ,obj.options.n  ,endl]);
     %Language Check
     fwrite(socket, ['language '     ,obj.options.l  ,endl]);
+    disp('Waiting For responses');
     read = strtrim(fgets(socket));
     disp(['Response: ',read]);
     if(strcmp(read,'no'))

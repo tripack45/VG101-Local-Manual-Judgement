@@ -3,7 +3,7 @@ function uploadFile(obj,handle, file, id)
 endl=sprintf('\n');
 content = fileread(file);
 size    = length(content);
-file_name_fixed = strrep(' ', '_', file);
+file_name_fixed = strrep(file,' ', '_');
 fwrite(handle, ['file ',num2str(id),' ' ...
     ,obj.options.l,' ', num2str(size),' ',file_name_fixed,endl]);
 fwrite(handle, content );
