@@ -58,7 +58,7 @@ SOFTWARE.
         end
     end
     
-    methods (Access = public)
+    methods (Access = public) % Application Interface
         % get a list with all supported languages
         getAllowedLanguages(obj);
         
@@ -97,6 +97,13 @@ SOFTWARE.
         
         % Upload a file to the server
         uploadFile(obj,handle, file, id);
+    end
+    
+    methods (Access = public)
+        function clearAll(obj)
+            obj.files={};
+            obj.basefiles={};
+        end
     end
 end
 
