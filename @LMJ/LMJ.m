@@ -8,13 +8,15 @@ classdef LMJ
        FOLDER_TEMPLATE = '^(\d{10})_(.*)';
        
        TEMPLATE_VAR    = '<#(.*?)#>';
-       %The string must only contain one "(.*)" substring
-       
-       FILE_TEMPLATE   = '';
-       README_TEMPLATE = '';
+       %The string must only contain one "(.*)" substring       
        
        SCORE_FILE      = 'score.txt';
        SCORE_TEMPLATE  = 'template.txt';
+       
+       SCORE_VAR_TEMPLATE = '^\$(?<var>.+)=(?<value>.*)';
+                            % Variable Name must not be empty
+                            % Variable Value can be empty
+       SCORE_SEC_TEMPLATE = '^\@section=(?<section>.*)$';
        
        WORKING_DIR     = './working/';
        ORIGINAL_DIR    = './original/';
@@ -47,6 +49,7 @@ classdef LMJ
     str   = templateStrBindParam(string,param);    
     str   = getGradingFolderName();
     param = parseFolderName(folderName);
+    
     end
         
 end
