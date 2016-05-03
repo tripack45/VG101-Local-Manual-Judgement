@@ -12,7 +12,6 @@ classdef LMJ
        
        SCORE_FILE      = 'score.txt';
        SCORE_TEMPLATE  = 'template.txt';
-       SCORE_EXPORT_FILE = 'score.xlsx';
        
        SCORE_VAR_TEMPLATE = '^\$(?<var>.+)=(?<value>.*)';
                             % Variable Name must not be empty
@@ -50,7 +49,8 @@ classdef LMJ
     str   = templateStrBindParam(string,param);    
     str   = getGradingFolderName();
     param = parseFolderName(folderName);
-            export2xls(statistics,path);
+            export2xls(path);
+   
     end
         
 end

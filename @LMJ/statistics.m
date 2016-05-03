@@ -28,6 +28,7 @@ function result = statistics()
             end      
         end
     end
+    LMJ.export2xls(result,LMJ.SCORE_EXPORT_FILE);
 end
 
 function paramSet = parseScoreFile(scoreFilePath)

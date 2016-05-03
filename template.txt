@@ -2,6 +2,7 @@
 $sid=<#sid#>
 $name=<#name#>
 $title=<#title#>
+$grader=JohnDoe
 
 @section=ex1
 $score=
