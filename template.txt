@@ -1,4 +1,4 @@
-@section=general_info
+@section=general
 $sid=<#sid#>
 $name=<#name#>
 $title=<#title#>
