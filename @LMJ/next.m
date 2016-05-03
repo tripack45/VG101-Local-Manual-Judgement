@@ -1,5 +1,7 @@
 function next()
-   LMJ.checkDirIntegrety();
+
+   inspectPath = LMJ.requireFolderOr('Throw',LMJ.INSPECT_DIR);
+   originalPath = LMJ.requireFolderOr('Create',LMJ.ORIGINAL_DIR);
    
    listInspect = dir(LMJ.INSPECT_DIR);
    listInspect(1:2) = [];

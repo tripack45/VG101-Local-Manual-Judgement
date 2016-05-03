@@ -1,9 +1,7 @@
 function emptyWorkingDir()
 % EMPTYWORKINGDIR 
 fclose('all');
-files = dir(LMJ.WORKING_DIR);
-files(1:2) = [];
-for item = files'
+for item = LMJ.foreach('filefolder',LMJ.WORKING_DIR)
     file2delete=[LMJ.WORKING_DIR,item.name];
     disp(['Deleting: ' file2delete]);
     delete(file2delete);

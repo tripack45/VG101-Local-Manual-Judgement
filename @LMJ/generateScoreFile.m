@@ -3,9 +3,9 @@ function generateScoreFile(forceWrite)
 scoreFilePath=[LMJ.WORKING_DIR,LMJ.SCORE_FILE];
 if(exist(scoreFilePath,'file'))
     if(~exist('forceWrite','var')||~forceWrite)
-        throw(MException('Error:Error',...
-            ['Score File "',scoreFilePath,'" already exist.', ...
-            'Call generateScoreFile(true) to override.']));
+        disp(['Score File "',scoreFilePath,'" already exist.', ...
+            'Call generateScoreFile(true) to override.']);
+        return;
     else
         disp('Score file already exist, overwriting');
     end
