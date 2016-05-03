@@ -6,7 +6,7 @@ if(~isempty(listOriginal))
         ['Error: More than 1 folder in "',LMJ.ORIGINAL_DIR,'"!']);
     gradingFolderName=listOriginal.name;
 else
-    gradingFolderName=[];
+    gradingFolderName='';
 end
 str = gradingFolderName;
 end

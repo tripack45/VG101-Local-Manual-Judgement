@@ -1,40 +1,34 @@
 function next()
 
    inspectPath = LMJ.requireFolderOr('Throw',LMJ.INSPECT_DIR);
-   originalPath = LMJ.requireFolderOr('Create',LMJ.ORIGINAL_DIR);
+   listInspect = LMJ.foreach('folder',inspectPath);
    
-   listInspect = dir(LMJ.INSPECT_DIR);
-   listInspect(1:2) = [];
-   
-   listOriginal = dir(LMJ.ORIGINAL_DIR);
-   listOriginal(1:2) = [];
+   LMJ.requireFolderOr('Create',LMJ.ORIGINAL_DIR);
+   gradingFolderName = LMJ.getGradingFolderName();
    
    % First deal with working set
-   if(~isempty(listOriginal))
+   if(~isempty(gradingFolderName))
        
-       assert(length(listOriginal)==1, ...
-           ['Error: More than 1 folder in "',LMJ.ORIGINAL_DIR,'"!']);
-       
-       gradingFolderName=listOriginal.name;
        gradingFolderPath=[LMJ.ORIGINAL_DIR,gradingFolderName];
        
        if(LMJ.ENABLE_STATISTICS)
-           scoreFilePath    = [LMJ.WORKING_DIR,LMJ.SCORE_FILE];
-           if(exist(scoreFilePath,'file')==2)
+           scoreFilePath = [LMJ.WORKING_DIR,LMJ.SCORE_FILE];
+           scoreFilePath = LMJ.requireFileOr('Ignore',scoreFilePath);
+           if(~isempty(scoreFilePath))
                copyfile(scoreFilePath       ,gradingFolderPath);
                movefile(gradingFolderPath   ,LMJ.OUTPUT_DIR);
                LMJ.emptyWorkingDir();
            else
                disp('Score File Does not exist!');
                disp('Genearate Score File.');
-               LMJ.generateScoreFile(struct());
+               LMJ.generateScoreFile();
                return;
            end
        else
            movefile(gradingFolderPath,LMJ.OUTPUT_DIR);
            LMJ.emptyWorkingDir();
        end
-
+       
    else
        disp('Nothing is currently being graded');
    end
