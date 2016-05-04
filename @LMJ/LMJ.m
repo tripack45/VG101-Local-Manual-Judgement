@@ -51,27 +51,10 @@ classdef LMJ
     str   = getGradingFolderName();
     param = parseFolderName(folderName);
             export2xls(statistics,path);
-    str   = requireOr(type,action,path);
-    list  = foreach(type,object);
     end
     
     methods (Access = private, Static = true)
-        function str = requireFileOr(action,path)
-            str = LMJ.requireOr('file',action,path);
-        end 
-        function str = requireFolderOr(action,path)
-            switch lower(action)
-                case 'create'
-                    str = LMJ.requireOr('folder','Warn',path);
-                    if isempty(str);mkdir(path);end;
-                    str = path;
-                otherwise
-                    str = LMJ.requireOr('folder',action,path);        
-            end
-        end
-        function str = requireFileFolderOr(action,path)
-            str = LMJ.requireOr('filefolder',action,path);
-        end
+
     end
         
 end

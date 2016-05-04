@@ -5,22 +5,22 @@ if(~LMJ.ENABLE_STATISTICS)
     return;
 end
 
-outputPath = LMJ.requireFolderOr('Create',LMJ.OUTPUT_DIR);
+outputPath = utils.requireFolderOr('Create',LMJ.OUTPUT_DIR);
 
 result = [];
 
-homeworkList = LMJ.foreach('folder',outputPath);
+homeworkList = utils.foreach('folder',outputPath);
 if(isempty(homeworkList))
     disp('No reviewed homework!');
     return;
 end
 
-for homeworkFolder = LMJ.foreach('folder',LMJ.OUTPUT_DIR)
+for homeworkFolder = utils.foreach('folder',LMJ.OUTPUT_DIR)
     
     scoreFilePath = [LMJ.OUTPUT_DIR, ...
         homeworkFolder.name,'/',LMJ.SCORE_FILE];
     
-    scoreFilePath = LMJ.requireFileOr('Warn',scoreFilePath);
+    scoreFilePath = utils.requireFileOr('Warn',scoreFilePath);
     if isempty(scoreFilePath)
         continue;
     end
@@ -30,7 +30,7 @@ for homeworkFolder = LMJ.foreach('folder',LMJ.OUTPUT_DIR)
         result = paramSet;
     else
         flag = true;
-        for field = LMJ.foreach('field',paramSet);
+        for field = utils.foreach('field',paramSet);
             field = field{1};
             if(flag)
                 flag = false;

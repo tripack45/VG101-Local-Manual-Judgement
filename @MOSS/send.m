@@ -18,6 +18,11 @@ else
     fwrite(socket, ['language '     ,obj.options.l  ,endl]);
     disp('Waiting For responses');
     read = strtrim(fgets(socket));
+    if(isempty(read))
+        disp('Server timed out. No confirmation read');
+        fclose(socket);
+        return;
+    end
     disp(['Response: ',read]);
     if(strcmp(read,'no'))
         fwrite(socket, 'end\n');

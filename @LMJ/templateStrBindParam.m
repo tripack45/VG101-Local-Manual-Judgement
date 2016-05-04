@@ -1,6 +1,6 @@
 function str = templateStrBindParam(str, param)
 if(exist('param','var'))
-   for p = LMJ.foreach('field',param);
+   for p = utils.foreach('field',param);
        value = param.(p{1});
        if(isnumeric(value))
            value = num2str(value);

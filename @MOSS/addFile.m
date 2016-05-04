@@ -1,18 +1,15 @@
 function addFile(obj,file)
-%ADDFILE Summary of this function goes here
-%   Detailed explanation goes here
-    e = exist(file,'file');
-    switch(e)
-        case 0
-            disp('None Existing File');
-            return;
-        case 2
-            obj.files{end+1}=file;
-            disp(['Added File: ',file]);
-            return;
-        case 7
-            disp('Folder specified!');
-            return;
+%ADDFILE Add a single file or a list of files into the system
+if(iscell(file))
+    for eachFile = file'
+        path = utils.requireFileOr('Warn',eachFile{1});
+        if(~isempty(path))
+            obj.files = [obj.files ; eachFile];
+        end
     end
+else
+    path = utils.requireFileOr('Warn',file);
+    obj.files{end+1} = path;
+end
 end
 

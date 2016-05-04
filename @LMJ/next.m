@@ -1,9 +1,9 @@
 function next()
 
-   inspectPath = LMJ.requireFolderOr('Throw',LMJ.INSPECT_DIR);
-   listInspect = LMJ.foreach('folder',inspectPath);
+   inspectPath = utils.requireFolderOr('Throw',LMJ.INSPECT_DIR);
+   listInspect = utils.foreach('folder',inspectPath);
    
-   LMJ.requireFolderOr('Create',LMJ.ORIGINAL_DIR);
+   utils.requireFolderOr('Create',LMJ.ORIGINAL_DIR);
    gradingFolderName = LMJ.getGradingFolderName();
    
    % First deal with working set
@@ -13,7 +13,7 @@ function next()
        
        if(LMJ.ENABLE_STATISTICS)
            scoreFilePath = [LMJ.WORKING_DIR,LMJ.SCORE_FILE];
-           scoreFilePath = LMJ.requireFileOr('Ignore',scoreFilePath);
+           scoreFilePath = utils.requireFileOr('Ignore',scoreFilePath);
            if(~isempty(scoreFilePath))
                copyfile(scoreFilePath       ,gradingFolderPath);
                movefile(gradingFolderPath   ,LMJ.OUTPUT_DIR);
