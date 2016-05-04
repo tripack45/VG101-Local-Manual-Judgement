@@ -1,5 +1,6 @@
 function list = list(type, path, crit)
 %LISTALL suppose to be an expansion to dir
+    path = utils.validatePath(path);
     mask = [];
     fList = utils.foreach(type,path);
     for item = fList  % for each file in fList

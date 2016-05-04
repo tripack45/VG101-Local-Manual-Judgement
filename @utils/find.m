@@ -1,6 +1,6 @@
 function list = find(type,path,crit,option)    
     path  = utils.validatePath(path);
-    fList = utils.list(type,path,crit);
+    
     if(~exist('option','var'))
         option = '';
     end
@@ -9,6 +9,7 @@ function list = find(type,path,crit,option)
     else
         prefix = path;
     end
+    fList = utils.list(type,path,crit);
     for i = 1:length(fList)
         fList(i).name = [prefix,fList(i).name];
         if(fList(i).isdir);
