@@ -8,7 +8,7 @@ if(iscell(file))
         end
     end
 else
-    path = utils.requireFileOr('Warn',file);
+    path = utils.requireFileOr('Throw',file);
     obj.files{end+1} = path;
 end
 end

@@ -29,7 +29,7 @@ SOFTWARE.
 %}
     
     properties (Constant = true) 
-       allowed_languages = {'c', 'cc', 'java', 'ml', ...
+       allowedLanguages = {'c', 'cc', 'java', 'ml', ...
                             'pascal', 'ada', 'lisp', 'scheme', ...
                             'haskell', 'fortran', 'ascii', 'vhdl', ...
                             'perl', 'matlab', 'python', 'mips', ...
@@ -63,7 +63,7 @@ SOFTWARE.
         getAllowedLanguages(obj);
         
         % set the language of the source files
-        setLanguages(obj,lang);
+        setLanguage(obj,lang);
         
         % Enable Directory-Mode
 	    %see -d in MOSS-Documentation
@@ -75,11 +75,12 @@ SOFTWARE.
         
         %Occurences of a string over the limit will be ignored
         %see -m in MOSS-Documentation
-        setIngoreLimit(obj,limit);
+        setIgoreLimit(obj,limit);
         
         % Set the comment for the request
-        % @see -s in MOSS-Documentation
-        setCommentString(obj,comment);
+        % @see -c in MOSS-Documentation
+        % Currently not supported!
+        % setCommentString(obj,comment);
         
         % Set the number of results
 	    % @see -n in MOSS-Documentation
@@ -94,6 +95,9 @@ SOFTWARE.
         
         % Send the request to the server and wait for the response
         read = send(obj);
+    end
+    
+    methods (Access = private)
         
         % Upload a file to the server
         uploadFile(obj,handle, file, id);
