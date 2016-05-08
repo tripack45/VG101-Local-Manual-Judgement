@@ -121,4 +121,5 @@ The function go through the path you provide recursively, and find files or fold
 *  The third argument is a regular expression. Files that match the expression will be put into the result collection.
 * There could be a fourth argument, which uses a string to specify certain option. See [documents/functions](functions.md) for details.
 
+## End
 Above is basically all the functionalities of the system. To understand the system better, or to help develop, see [documents/functions/md](functions.md) for details. See [documents/configurations](configurations.md) for more detailed configuration. 
