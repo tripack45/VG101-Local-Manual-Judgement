@@ -36,7 +36,7 @@ classdef LMJ
     methods (Access = public, Static = true)
         classify();
         next();
-        statistics();
+        result = statistics();
         checkDirIntegrety();
         resetWorkingDir();
         generateScoreFile(info);

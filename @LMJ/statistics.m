@@ -41,6 +41,7 @@ for homeworkFolder = utils.foreach('folder',LMJ.OUTPUT_DIR)
         end
     end
 end
+displayStatistics(result);
 LMJ.export2xls(result,LMJ.SCORE_EXPORT_FILE);
 end
 
@@ -77,3 +78,14 @@ end
 fclose(fid);
 end
 
+function displayStatistics(result)
+    table = struct2table(result);
+    header = table.Properties.VariableNames; 
+    data = table2cell(table);
+    table=uitable('Data',data,'ColumnName',header);
+    t = gcf;
+    t.Position(3) = t.Position(3)*1.5;
+    t.Position(1) = t.Position(1)*0.7;
+    npos = [[0,0],t.Position(3:4)];
+    table.Position=npos;
+end
