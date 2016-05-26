@@ -34,6 +34,7 @@ classdef LMJ
     end
     
     methods (Access = public, Static = true)
+        importClassify(template);
         classify();
         next();
         result = statistics();
@@ -45,12 +46,12 @@ classdef LMJ
     
     
     methods (Access = public, Static =true)
-            APIClassify(path,pathout);
             emptyWorkingDir();
     str   = templateStrBindParam(string,param);    
     str   = getGradingFolderName();
     param = parseFolderName(folderName);
             export2xls(statistics,path);
+    roster= readRoster(filename);
     end
     
     methods (Access = private, Static = true)
