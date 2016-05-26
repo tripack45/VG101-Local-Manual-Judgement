@@ -14,6 +14,8 @@ classdef LMJ
        SCORE_TEMPLATE  = 'template.txt';
        SCORE_EXPORT_FILE = 'score.xlsx';
        
+       SPREADSHEET_TEMPLATE='gradebook.csv';
+       
        SCORE_VAR_TEMPLATE = '^\$(?<var>.+)=(?<value>.*)';
                             % Variable Name must not be empty
                             % Variable Value can be empty

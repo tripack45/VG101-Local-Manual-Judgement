@@ -8,5 +8,11 @@ function param = parseFolderName(folderName)
     if(~isempty(tokens{2}))
         param.title = tokens{2};
     end
+    roster = LMJ.readRoster(LMJ.SPREADSHEET_TEMPLATE);
+    for item = roster';
+        if strcmp(param.sid, item.StudentID)
+            param.name = item.StudentName;
+            return;
+        end
+    end
 end
-
