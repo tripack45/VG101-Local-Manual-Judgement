@@ -1,4 +1,5 @@
 function list = foreach(type,object)
+    type = lower(type);
     switch type
         case 'file'
             list = dir(object);
