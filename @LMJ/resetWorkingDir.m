@@ -16,7 +16,13 @@ if(~isempty(listOriginal))
     listGradingFiles = dir(gradingFolderPath);
     listGradingFiles(1:2) = [];
     for item = listGradingFiles'
-        copyfile([gradingFolderPath,item.name],LMJ.WORKING_DIR);
+        if item.isdir
+            copyfile([gradingFolderPath,item.name], ...
+                [LMJ.WORKING_DIR,item.name]);
+        else
+            copyfile([gradingFolderPath,item.name], ...
+                LMJ.WORKING_DIR);
+        end
     end
 else
     disp('You are not grading anything');
