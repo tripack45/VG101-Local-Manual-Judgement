@@ -5,7 +5,8 @@ classdef LMJ
     
     
     properties (Constant = true)
-       FOLDER_TEMPLATE = '^(\d{10})_(.*)';
+       %FOLDER_TEMPLATE = '^(\d{10})_(.*)';
+       FOLDER_TEMPLATE = '.*\((\d+)\)$'
        
        TEMPLATE_VAR    = '<#(.*?)#>';
        %The string must only contain one "(.*)" substring       
@@ -26,6 +27,8 @@ classdef LMJ
        INSPECT_DIR     = './under_review/';
        INPUT_DIR       = './unclassified/';
        OUTPUT_DIR      = './reviewed/';
+       
+       TITLE = 'hw1';
        
        ENABLE_STATISTICS = true;
     end

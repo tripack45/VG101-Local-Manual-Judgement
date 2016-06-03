@@ -1,8 +1,8 @@
 @section=general
 $sid=<#sid#>
 $name=<#name#>
-$title=<#title#>
-$grader=JohnDoe
+$title=hw1
+$grader=Yao Yue
 
 @section=ex1
 $score=
@@ -16,3 +16,9 @@ $score=
 
 @section=ex4
 $score=
+
+@section=ex5
+$score=
+
+@section=adjustments
+$score=0
