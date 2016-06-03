@@ -2,7 +2,8 @@ classdef utils
     %UTILS This is a utility class, designed to be full static.
     %
     
-    properties
+    properties (Constant = true)
+        RAR_EXEC = 'C:\Program Files\WinRAR\WinRAR.exe';
     end
     
     methods (Access = private)
@@ -19,6 +20,7 @@ classdef utils
         list = list(type,path,crit);
         list = findRecursive(type,path,crit,option);
         list = find(type,path,crit,option);
+               extractFiles(fileList);
     end
     
     methods (Access = public, Static = true)
