@@ -27,8 +27,7 @@ classdef LMJ
        INSPECT_DIR     = './under_review/';
        INPUT_DIR       = './unclassified/';
        OUTPUT_DIR      = './reviewed/';
-       
-       TITLE = 'hw1';
+       RETURN_DIR      = './return/';
        
        ENABLE_STATISTICS = true;
     end
@@ -42,11 +41,12 @@ classdef LMJ
         importClassify(template);
         classify();
         next();
+        returnHW(name);
         result = statistics();
         checkDirIntegrety();
         resetWorkingDir();
         generateScoreFile(info);
-        
+        writeToGradebookXLS(result);
     end
     
     
@@ -55,7 +55,8 @@ classdef LMJ
     str   = templateStrBindParam(string,param);    
     str   = getGradingFolderName();
     param = parseFolderName(folderName);
-            export2xls(statistics,path);
+            export2xls(statistics, path);
+            export2csv(statistics, path, hwStr);
     roster= readRoster(filename);
     end
     
