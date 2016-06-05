@@ -41,8 +41,10 @@ for homeworkFolder = utils.foreach('folder',LMJ.OUTPUT_DIR)
         end
     end
 end
-displayStatistics(result);
+
 LMJ.export2xls(result,LMJ.SCORE_EXPORT_FILE);
+
+displayStatistics(result);
 end
 
 function paramSet = parseScoreFile(scoreFilePath)
