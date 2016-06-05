@@ -9,7 +9,15 @@ end
 for item = utils.foreach('folder',LMJ.WORKING_DIR)
     folder2delete=[LMJ.WORKING_DIR,item.name];
     disp(['Deleting: ' folder2delete]);
-    rmdir(folder2delete,'s');
-end
+    try
+        rmdir([folder2delete,'/'],'s');
+    catch
+        disp('========Error============');
+        disp('The working dir is not cleared');
+        disp('Please manually reset it');
+        disp('Delete all things in working dir');
+        disp('Then call LMJ.resetWorkingDir()');
+        disp('=========================');
+    end
 end
 
