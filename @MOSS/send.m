@@ -40,7 +40,10 @@ else
     end
     fwrite(socket, ['query 0 ', obj.options.c,endl]);
     disp('Reading Responses');
-    read = fgets(socket);
+    read = [];
+    while isempty(read)
+        read = fgets(socket);
+    end
     fwrite(socket, 'end\n');
     fclose(socket);
     disp('End of execution, the response URL:');
