@@ -56,7 +56,6 @@ classdef LMJ
     str   = getGradingFolderName();
     param = parseFolderName(folderName);
             export2xls(statistics, path);
-            export2csv(statistics, path, hwStr);
     roster= readRoster(filename);
     end
     
