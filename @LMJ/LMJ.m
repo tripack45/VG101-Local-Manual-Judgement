@@ -38,7 +38,7 @@ classdef LMJ
     end
     
     methods (Access = public, Static = true)
-        importClassify(template);
+        importClassify(template, ignoreHiddenFiles);
         classify();
         next();
         returnHW(name);
