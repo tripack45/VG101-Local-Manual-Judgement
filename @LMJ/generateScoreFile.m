@@ -1,5 +1,6 @@
 function generateScoreFile(forceWrite)
 %GENERATESCOREFILE 
+feature('DefaultCharacterSet', 'UTF8');
 scoreFilePath=[LMJ.WORKING_DIR,LMJ.SCORE_FILE];
 if(exist(scoreFilePath,'file'))
     if(~exist('forceWrite','var')||~forceWrite)
