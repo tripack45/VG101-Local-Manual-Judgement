@@ -1,5 +1,5 @@
 function result = statistics()
-
+feature('DefaultCharacterSet', 'UTF8');
 if(~LMJ.ENABLE_STATISTICS)
     disp('Error: Statistic function not enabled!');
     return;
@@ -51,7 +51,7 @@ function paramSet = parseScoreFile(scoreFilePath)
 fid = fopen(scoreFilePath,'r');
 line = fgetl(fid);
 paramSet = struct();
-sectionPrefix = 'NULL';
+sectionPrefix = scoreFilePath;
 while ischar(line)
     %check for section
     sectionMatch = regexpi(line,LMJ.SCORE_SEC_TEMPLATE,'names');
@@ -68,6 +68,12 @@ while ischar(line)
     variableMatch = regexpi(line,LMJ.SCORE_VAR_TEMPLATE,'names');
     if length(variableMatch)==1
         if isempty(variableMatch.value)
+            variableMatch.value = '0';
+        end
+        variableMatch.var = strrep(variableMatch.var, '[','_');
+        variableMatch.var = strrep(variableMatch.var, ']','');
+        variableMatch.value = strrep(variableMatch.value, ' ','');
+        if (isempty(variableMatch.value))
             variableMatch.value = '0';
         end
         paramSet.([sectionPrefix,'_',variableMatch.var]) ...
